@@ -8,8 +8,15 @@ dotenv.config()
 const configuration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
 });
+const jacopo;
+if (process.env.PROMPT1) {
+  // La variabile d'ambiente esiste ed ha un valore assegnato diverso da "undefined"
+  jacopo=process.env.PROMPT1;
+} else {
+  // La variabile d'ambiente non esiste o ha un valore "undefined"
+  jacopo=process.env.PROMPT;
+}
 
-const jacopo=process.env.PROMPT
 
 const openai = new OpenAIApi(configuration);
 
