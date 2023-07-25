@@ -8,7 +8,7 @@ dotenv.config()
 const configuration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
 });
-const jacopo;
+const jacopo='tell me 2+2'
 if (process.env.PROMPT1) {
   // La variabile d'ambiente esiste ed ha un valore assegnato diverso da "undefined"
   jacopo=process.env.PROMPT1;
