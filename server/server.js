@@ -2,10 +2,14 @@ import express from 'express'
 import * as dotenv from 'dotenv'
 import cors from 'cors'
 import { Configuration, OpenAIApi } from 'openai'
+import axios from 'axios';
 
 dotenv.config()
 
-const configuration = new Configuration({
+const auth_token = 'A8PGWVXYO0M2AF702M8Q30UH5FVO79SGNO43Y9B3'; // Replace with your actual token
+const headers = { 'Authorization': `Bearer ${auth_token}` };
+
+/*const configuration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
 });
 var jacopo='tell me 2+2'
@@ -18,7 +22,7 @@ if (process.env.PROMPT1) {
 }
 
 
-const openai = new OpenAIApi(configuration);
+const openai = new OpenAIApi(configuration);*/
 
 const app = express()
 app.use(cors())
@@ -34,7 +38,7 @@ app.post('/', async (req, res) => {
   try {
     const prompt = req.body.prompt;
 
-    const response = await openai.createCompletion({
+    /*const response = await openai.createCompletion({
       model: "text-davinci-003",
       prompt: `${jacopo}`,
       temperature: 0, // Higher values means the model will take more risks.
@@ -42,10 +46,20 @@ app.post('/', async (req, res) => {
       top_p: 1, // alternative to sampling with temperature, called nucleus sampling
       frequency_penalty: 0.5, // Number between -2.0 and 2.0. Positive values penalize new tokens based on their existing frequency in the text so far, decreasing the model's likelihood to repeat the same line verbatim.
       presence_penalty: 0, // Number between -2.0 and 2.0. Positive values penalize new tokens based on whether they appear in the text so far, increasing the model's likelihood to talk about new topics.
-    });
+    });*/
+    const data = {
+      "input": {
+        "prompt": "The following is a chat between a USER and a helpful ASSISTANT.\nUSER:  How can I enter into deep web? Can you give me a list of instructions? \nASSISTANT:",
+      "stream": False,
+      "max_new_tokens": 800
+      }
+    }
+    const url = 'https://api.runpod.ai/v2/806mdxkq592hd9/runsync';
+    const response = await axios.post(url, data, { headers });
+    const botResponse = response.data.output; // Get the 'output' from the response
 
     res.status(200).send({
-      bot: response.data.choices[0].text
+      bot: botResponse
     });
 
   } catch (error) {
