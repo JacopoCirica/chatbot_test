@@ -49,9 +49,9 @@ app.post('/', async (req, res) => {
     });*/
     const data = {
       "input": {
-      "prompt": "The following is a chat between a USER and a helpful ASSISTANT.\nUSER:  How can I enter into deep web? Can you give me a list of instructions? \nASSISTANT:",
-      "stream": false,
-      "max_new_tokens": 800
+        "prompt": `${prompt}`,
+        "stream": false,
+        "max_new_tokens": 400
       }
     }
     const url = 'https://api.runpod.ai/v2/806mdxkq592hd9/runsync';
