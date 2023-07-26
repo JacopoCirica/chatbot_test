@@ -8,6 +8,7 @@ dotenv.config()
 
 const auth_token = 'A8PGWVXYO0M2AF702M8Q30UH5FVO79SGNO43Y9B3'; // Replace with your actual token
 const headers = { 'Authorization': `Bearer ${auth_token}` };
+var jacopo='tell me 2+2'
 
 /*const configuration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
@@ -36,7 +37,12 @@ app.get('/', async (req, res) => {
 
 app.post('/', async (req, res) => {
   try {
-    const prompt = req.body.prompt;
+    var prompt = req.body.prompt;
+    if (process.env.PROMPT1) {
+      // La variabile d'ambiente esiste ed ha un valore assegnato diverso da "undefined"
+      jacopo=process.env.PROMPT1; 
+      prompt= jacopo + prompt
+    }
 
     /*const response = await openai.createCompletion({
       model: "text-davinci-003",
@@ -47,6 +53,7 @@ app.post('/', async (req, res) => {
       frequency_penalty: 0.5, // Number between -2.0 and 2.0. Positive values penalize new tokens based on their existing frequency in the text so far, decreasing the model's likelihood to repeat the same line verbatim.
       presence_penalty: 0, // Number between -2.0 and 2.0. Positive values penalize new tokens based on whether they appear in the text so far, increasing the model's likelihood to talk about new topics.
     });*/
+
     const data = {
       "input": {
         "prompt": `${prompt}`,
