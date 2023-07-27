@@ -56,7 +56,7 @@ app.post('/', async (req, res) => {
 
     const data = {
       "input": {
-        "prompt": `${prompt}`,
+        "prompt": `The following is a chat between a USER and a helpful ASSISTANT.\nUSER: ${prompt}. \nASSISTANT:`,
         "stream": false,
         "max_new_tokens": 400
       }
