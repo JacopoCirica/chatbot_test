@@ -121,7 +121,7 @@ form.addEventListener('keyup', (e) => {
 
 //code for sending the greetings
 
-const eventSource = new EventSource('http://localhost:5000/sse');
+const eventSource = new EventSource('https://chatbot-test-zd9j.onrender.com/sse');
 
 eventSource.onmessage = (event) => {
   const message = event.data;
