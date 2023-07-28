@@ -108,6 +108,6 @@ app.get('/sse', async (req, res) => {
 
   // Gestisci la chiusura della connessione del client
   client.on('close', () => {
-    clearInterval(interval); // Smetti di inviare messaggi quando il client si disconnette
+    clearInterval(messageInterval); // Smetti di inviare messaggi quando il client si disconnette
   });
 });
