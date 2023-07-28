@@ -96,7 +96,7 @@ app.get('/sse', async (req, res) => {
     client.write(`data: ${message}\n\n`);
     
   }, 2000); // Invia un messaggio ogni 2 secondi (puoi regolare l'intervallo a tuo piacimento) */
-  const checkForMessage = () => {
+  /*const checkForMessage = () => {
     if (process.env.GREETING) {
       client.write(`data: PROVA\n\n`); // Invia il messaggio al frontend
       //globalMessage = null; // Resetta la variabile globale dopo aver inviato il messaggio
@@ -104,10 +104,14 @@ app.get('/sse', async (req, res) => {
   };
 
   // Esegui la funzione di controllo una volta ogni secondo
-  const messageInterval = setInterval(checkForMessage, 1000);
+  const messageInterval = setInterval(checkForMessage, 1000);*/
+  const interval = setTimeout(() => {
+    const message = 'Nuovo messaggio dal backend!';
+    client.write(`data: ${message}\n\n`);
+  }, "60000");
 
   // Gestisci la chiusura della connessione del client
   client.on('close', () => {
-    clearInterval(messageInterval); // Smetti di inviare messaggi quando il client si disconnette
+    clearInterval(interval); // Smetti di inviare messaggi quando il client si disconnette
   });
 });
