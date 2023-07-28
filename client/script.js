@@ -118,3 +118,20 @@ form.addEventListener('keyup', (e) => {
         handleSubmit(e)
     }
 })
+
+//code for sending the greetings
+
+const eventSource = new EventSource('http://localhost:5000/sse');
+
+eventSource.onmessage = (event) => {
+  const message = event.data;
+  // Aggiorna l'interfaccia della chat con il messaggio ricevuto dal backend
+  // Ad esempio, puoi aggiungere il messaggio a #chat_container
+  chatContainer.innerHTML += chatStripe(true, message);
+  chatContainer.scrollTop = chatContainer.scrollHeight;
+};
+
+eventSource.onerror = (event) => {
+  console.error('Error with SSE:', event);
+  eventSource.close();
+};

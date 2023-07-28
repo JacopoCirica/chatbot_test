@@ -77,3 +77,26 @@ app.post('/', async (req, res) => {
 })
 
 app.listen(5000, () => console.log('AI server started on http://localhost:5000'))
+
+app.get('/sse', async (req, res) => {
+  res.setHeader('Content-Type', 'text/event-stream');
+  res.setHeader('Cache-Control', 'no-cache');
+  res.setHeader('Connection', 'keep-alive');
+
+  // Invia un messaggio di benvenuto al client come primo evento
+  res.write('data: Ciao! Sono la tua chatbot.\n\n');
+
+  // Inserisci il client (frontend) nella lista degli ascoltatori
+  const client = res;
+
+  // Simula un'attività di backend (per esempio, invio di messaggi ad intervalli regolari)
+  const interval = setInterval(() => {
+    const message = 'Nuovo messaggio dal backend!';
+    client.write(`data: ${message}\n\n`);
+  }, 2000); // Invia un messaggio ogni 2 secondi (puoi regolare l'intervallo a tuo piacimento)
+
+  // Gestisci la chiusura della connessione del client
+  client.on('close', () => {
+    clearInterval(interval); // Smetti di inviare messaggi quando il client si disconnette
+  });
+});
