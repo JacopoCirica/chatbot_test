@@ -88,7 +88,7 @@ app.get('/sse', async (req, res) => {
 
   // Inserisci il client (frontend) nella lista degli ascoltatori
   const client = res;
-  if(process.env.GREETING){
+  
   // Simula un'attività di backend (per esempio, invio di messaggi ad intervalli regolari)
   setInterval(() => {
     
@@ -101,5 +101,4 @@ app.get('/sse', async (req, res) => {
   client.on('close', () => {
     clearInterval(interval); // Smetti di inviare messaggi quando il client si disconnette
   });
-}
 });
