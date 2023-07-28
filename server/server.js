@@ -108,7 +108,7 @@ app.get('/sse', async (req, res) => {
   const interval = setTimeout(() => {
     const message = 'The presentation has ended and I am no longer available. ';
     client.write(`data: ${message}\n\n`);
-  }, "60000");
+  }, "600000");
 
   // Gestisci la chiusura della connessione del client
   client.on('close', () => {
