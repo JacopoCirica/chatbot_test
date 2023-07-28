@@ -90,12 +90,21 @@ app.get('/sse', async (req, res) => {
   const client = res;
   
   // Simula un'attività di backend (per esempio, invio di messaggi ad intervalli regolari)
-  setInterval(() => {
+  /*setInterval(() => {
     
     const message = 'Nuovo messaggio dal backend!';
     client.write(`data: ${message}\n\n`);
     
   }, 2000); // Invia un messaggio ogni 2 secondi (puoi regolare l'intervallo a tuo piacimento) */
+  const checkForMessage = () => {
+    if (process.env.GREETING) {
+      client.write(`data: PROVA\n\n`); // Invia il messaggio al frontend
+      //globalMessage = null; // Resetta la variabile globale dopo aver inviato il messaggio
+    }
+  };
+
+  // Esegui la funzione di controllo una volta ogni secondo
+  const messageInterval = setInterval(checkForMessage, 1000);
 
   // Gestisci la chiusura della connessione del client
   client.on('close', () => {
