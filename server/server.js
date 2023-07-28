@@ -90,7 +90,7 @@ app.get('/sse', async (req, res) => {
   const client = res;
 
   // Simula un'attività di backend (per esempio, invio di messaggi ad intervalli regolari)
-  const interval = setInterval(() => {
+  setInterval(() => {
     if(process.env.GREETING){
     const message = 'Nuovo messaggio dal backend!';
     client.write(`data: ${message}\n\n`);
