@@ -106,7 +106,7 @@ app.get('/sse', async (req, res) => {
   // Esegui la funzione di controllo una volta ogni secondo
   const messageInterval = setInterval(checkForMessage, 1000);*/
   const interval = setTimeout(() => {
-    const message = 'Nuovo messaggio dal backend!';
+    const message = 'The presentation has ended and I am no longer available. ';
     client.write(`data: ${message}\n\n`);
   }, "60000");
 
