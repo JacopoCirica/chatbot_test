@@ -8,7 +8,7 @@ dotenv.config()
 
 const auth_token = 'A8PGWVXYO0M2AF702M8Q30UH5FVO79SGNO43Y9B3'; // Replace with your actual token
 const headers = { 'Authorization': `Bearer ${auth_token}` };
-var jacopo='tell me 2+2'
+var jacopo=''
 
 /*const configuration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
@@ -41,7 +41,7 @@ app.post('/', async (req, res) => {
     if (process.env.PROMPT1) {
       // La variabile d'ambiente esiste ed ha un valore assegnato diverso da "undefined"
       jacopo=process.env.PROMPT1; 
-      prompt= jacopo + prompt
+      
     }
 
     /*const response = await openai.createCompletion({
@@ -56,7 +56,7 @@ app.post('/', async (req, res) => {
 
     const data = {
       "input": {
-        "prompt": `The following is a chat between a USER and a helpful ASSISTANT.\nUSER: ${prompt}. \nASSISTANT:`,
+        "prompt": `The following is a chat between a USER and a helpful ASSISTANT.${jacopo}.\nUSER: ${prompt}. \nASSISTANT:`,
         "stream": false,
         "max_new_tokens": 400
       }
