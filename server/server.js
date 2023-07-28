@@ -86,13 +86,15 @@ app.get('/sse', async (req, res) => {
   // Invia un messaggio di benvenuto al client come primo evento
   res.write('data: Ciao! Sono la tua chatbot.\n\n');
 
-  /* Inserisci il client (frontend) nella lista degli ascoltatori
+  // Inserisci il client (frontend) nella lista degli ascoltatori
   const client = res;
 
   // Simula un'attività di backend (per esempio, invio di messaggi ad intervalli regolari)
   const interval = setInterval(() => {
+    if(process.env.GREETING){
     const message = 'Nuovo messaggio dal backend!';
     client.write(`data: ${message}\n\n`);
+    }
   }, 2000); // Invia un messaggio ogni 2 secondi (puoi regolare l'intervallo a tuo piacimento) */
 
   // Gestisci la chiusura della connessione del client
