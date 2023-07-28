@@ -88,17 +88,18 @@ app.get('/sse', async (req, res) => {
 
   // Inserisci il client (frontend) nella lista degli ascoltatori
   const client = res;
-
+  if(process.env.GREETING){
   // Simula un'attività di backend (per esempio, invio di messaggi ad intervalli regolari)
   setInterval(() => {
-    if(process.env.GREETING){
+    
     const message = 'Nuovo messaggio dal backend!';
     client.write(`data: ${message}\n\n`);
-    }
+    
   }, 2000); // Invia un messaggio ogni 2 secondi (puoi regolare l'intervallo a tuo piacimento) */
 
   // Gestisci la chiusura della connessione del client
   client.on('close', () => {
     clearInterval(interval); // Smetti di inviare messaggi quando il client si disconnette
   });
+}
 });
