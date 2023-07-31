@@ -64,7 +64,7 @@ app.post('/', async (req, res) => {
     const url = 'https://api.runpod.ai/v2/806mdxkq592hd9/runsync';
     const response = await axios.post(url, data, { headers });
     const botResponse = response.data.output; // Get the 'output' from the response
-    console.log(prompt)
+    console.log(data.input.prompt)
 
     res.status(200).send({
       bot: botResponse
