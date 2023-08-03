@@ -61,7 +61,7 @@ app.post('/', async (req, res) => {
         "max_new_tokens": 400
       }
     }
-    const url = 'https://api.runpod.ai/v2/806mdxkq592hd9/runsync';
+    const url = 'https://api.runpod.ai/v2/2b1i0trks3z6tq/runsync';
     const response = await axios.post(url, data, { headers });
     const botResponse = response.data.output; // Get the 'output' from the response
     console.log(data.input.prompt)
@@ -108,7 +108,7 @@ app.get('/sse', async (req, res) => {
   const interval = setTimeout(() => {
     const message = 'The presentation has ended and I am no longer available. ';
     client.write(`data: ${message}\n\n`);
-  }, "600000");
+  }, "6000000");
 
   // Gestisci la chiusura della connessione del client
   client.on('close', () => {
