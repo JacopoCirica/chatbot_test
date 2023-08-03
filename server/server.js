@@ -61,7 +61,7 @@ app.post('/', async (req, res) => {
         "max_new_tokens": 400
       }
     }
-    const url = 'https://api.runpod.ai/v2/2b1i0trks3z6tq/runsync';
+    const url = 'https://api.runpod.ai/v2/806mdxkq592hd9/runsync';
     const response = await axios.post(url, data, { headers });
     const botResponse = response.data.output; // Get the 'output' from the response
     console.log(data.input.prompt)
