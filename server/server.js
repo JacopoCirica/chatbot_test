@@ -84,7 +84,7 @@ app.get('/sse', async (req, res) => {
   res.setHeader('Connection', 'keep-alive');
 
   // Invia un messaggio di benvenuto al client come primo evento
-  res.write('data: Hello! I am your Digital Evil Twin, a chatbot programmed to respond to any kind of message. Test me!\n\n');
+  //res.write('data: Hello! I am your Digital Evil Twin, a chatbot programmed to respond to any kind of message. Test me!\n\n');
 
   // Inserisci il client (frontend) nella lista degli ascoltatori
   const client = res;
