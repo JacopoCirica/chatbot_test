@@ -71,11 +71,13 @@ const handleSubmit = async (e) => {
     let ciao=[]
     if (chatMessage.length>1){
         chatMessage.forEach((element) => ciao.push(element.innerHTML));
-        
+        usermessage=ciao.slice(-2,-1).toString
+        botmessage=ciao.slice(-1).toString
+        console.log(usermessage)
+        console.log(botmessage)
     
     }
-    console.log(ciao.slice(-2,-1))
-    console.log(ciao.slice(-1))
+    
 
     
     // user's chatstripe
