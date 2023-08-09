@@ -70,16 +70,14 @@ const handleSubmit = async (e) => {
     let myArray = Array.from(chatMessage)
     let ciao=[]
     if (chatMessage.length>1){
-        var botmessage=myArray.slice(-1)
-        var usermessage=myArray.slice(-2,-1)
-        //console.log(botmessage)
-        //console.log(usermessage)
+        chatMessage.forEach((element) => ciao.push(element.innerHTML));
+        
+    
     }
-
-    chatMessage.forEach((element) => ciao.push(element.innerHTML));
     console.log(ciao.slice(-2,-1))
     console.log(ciao.slice(-1))
 
+    
     // user's chatstripe
     chatContainer.innerHTML += chatStripe(false, data.get('prompt'))
 
