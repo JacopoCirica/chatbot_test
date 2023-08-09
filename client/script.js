@@ -72,7 +72,7 @@ const handleSubmit = async (e) => {
         var botmessage=chatMessage.slice(-1)
         var usermessage=myArray.slice(-2,-1)
         console.log(botmessage)
-        console.log(usermessage)
+        console.log(usermessage.textContent)
     }
 
     //chatMessage.forEach((element) => console.log(element.innerHTML));
