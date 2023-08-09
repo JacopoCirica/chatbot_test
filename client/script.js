@@ -67,6 +67,13 @@ const handleSubmit = async (e) => {
 
     const data = new FormData(form)
     var chatMessage = document.querySelectorAll('.message')
+    if (chatMessage.length>1){
+        var botmessage=chatMessage.slice(-1).innerHTML
+        var usermessage=chatMessage.slice(-2,-1).innerHTML
+        console.log(botmessage)
+        console.log(usermessage)
+    }
+
     chatMessage.forEach((element) => console.log(element.innerHTML));
 
     // user's chatstripe
