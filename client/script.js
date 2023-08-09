@@ -71,8 +71,8 @@ const handleSubmit = async (e) => {
     let ciao=[]
     if (chatMessage.length>1){
         chatMessage.forEach((element) => ciao.push(element.innerHTML));
-        usermessage=ciao.slice(-2,-1).toString
-        botmessage=ciao.slice(-1).toString
+        var usermessage=ciao.slice(-2,-1).toString
+        var botmessage=ciao.slice(-1).toString
         console.log(usermessage)
         console.log(botmessage)
     
