@@ -66,7 +66,7 @@ const handleSubmit = async (e) => {
     e.preventDefault()
 
     const data = new FormData(form)
-    var chatMessage = document.querySelectorAll('.wrapper ai')
+    var chatMessage = document.querySelectorAll('.wrapper .ai')
     console.log(chatMessage)
 
     // user's chatstripe
