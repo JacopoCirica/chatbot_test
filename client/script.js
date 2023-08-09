@@ -66,7 +66,7 @@ const handleSubmit = async (e) => {
     e.preventDefault()
 
     const data = new FormData(form)
-    console.log(chatContainer)
+    chatContainer.forEach((element) => console.log(element));
 
     // user's chatstripe
     chatContainer.innerHTML += chatStripe(false, data.get('prompt'))
