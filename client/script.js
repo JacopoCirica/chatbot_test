@@ -66,7 +66,8 @@ const handleSubmit = async (e) => {
     e.preventDefault()
 
     const data = new FormData(form)
-    chatContainer.forEach((element) => console.log(element));
+    var chatMessage = document.querySelectorAll('.wrapper ai')
+    console.log(chatMessage)
 
     // user's chatstripe
     chatContainer.innerHTML += chatStripe(false, data.get('prompt'))
