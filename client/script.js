@@ -67,9 +67,10 @@ const handleSubmit = async (e) => {
 
     const data = new FormData(form)
     var chatMessage = document.querySelectorAll('.message')
+    let myArray = Array.from(chatMessage)
     if (chatMessage.length>1){
-        var botmessage=chatMessage.slice(-1).innerHTML
-        var usermessage=chatMessage.slice(-2,-1).innerHTML
+        var botmessage=myArray.slice(-1).innerHTML
+        var usermessage=myArray.slice(-2,-1).innerHTML
         console.log(botmessage)
         console.log(usermessage)
     }
