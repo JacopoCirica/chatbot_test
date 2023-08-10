@@ -73,7 +73,7 @@ const handleSubmit = async (e) => {
         chatMessage.forEach((element) => ciao.push(element.innerHTML));
         var usermessage=ciao.slice(-2,-1)
         var botmessage=ciao.slice(-1)
-        console.log(type(usermessage))
+        console.log(typeof usermessage)
         console.log(botmessage)
     
     }
