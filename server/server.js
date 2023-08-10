@@ -37,6 +37,7 @@ app.get('/', async (req, res) => {
 
 app.post('/', async (req, res) => {
   try {
+    var previous_message=req.body.previous_message
     var prompt = req.body.prompt;
     if (process.env.PROMPT1) {
       // La variabile d'ambiente esiste ed ha un valore assegnato diverso da "undefined"
@@ -56,11 +57,12 @@ app.post('/', async (req, res) => {
 
     const data = {
       "input": {
-        "prompt": `The following is a chat between a USER and a helpful ASSISTANT.${jacopo}.\nUSER: ${prompt}. \nASSISTANT:`,
+        "prompt": `The following is a chat between a USER and a helpful ASSISTANT.${jacopo}.\nASSISTANT: ${previous_message}. \nUSER: ${prompt}. \nASSISTANT:`,
         "stream": false,
         "max_new_tokens": 400
       }
     }
+    console.log(data)
     const url = 'https://api.runpod.ai/v2/806mdxkq592hd9/runsync';
     const response = await axios.post(url, data, { headers });
     const botResponse = response.data.output; // Get the 'output' from the response

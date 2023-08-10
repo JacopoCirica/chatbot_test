@@ -69,15 +69,15 @@ const handleSubmit = async (e) => {
     var chatMessage = document.querySelectorAll('.message')
     
     let ciao=[]
-    if (chatMessage.length>0){
-        chatMessage.forEach((element) => ciao.push(element.innerHTML));
-        var usermessage=ciao.slice(-2,-1)
-        var botmessage=ciao.slice(-1)
-        const previousmessage = JSON.stringify(botmessage)
-        console.log(typeof usermessage)
-        console.log(previousmessage)
     
-    }
+    chatMessage.forEach((element) => ciao.push(element.innerHTML));
+    
+    var botmessage=ciao.slice(-1)
+    var previousmessage = JSON.stringify(botmessage)
+    
+    
+    
+    
     
 
     
@@ -106,7 +106,8 @@ const handleSubmit = async (e) => {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-            prompt: data.get('prompt')
+            prompt: data.get('prompt'),
+            previous_message: previousmessage
         })
     })
 
