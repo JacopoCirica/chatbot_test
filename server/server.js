@@ -38,6 +38,9 @@ app.get('/', async (req, res) => {
 app.post('/', async (req, res) => {
   try {
     var previous_message=req.body.previous_message
+    
+    previous_message = text.replace(/"|[|]/g, "");
+    
     var prompt = req.body.prompt;
     if (process.env.PROMPT1) {
       // La variabile d'ambiente esiste ed ha un valore assegnato diverso da "undefined"
