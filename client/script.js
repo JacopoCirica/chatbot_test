@@ -67,15 +67,15 @@ const handleSubmit = async (e) => {
 
     const data = new FormData(form)
     var chatMessage = document.querySelectorAll('.message')
-    let myArray = Array.from(chatMessage)
+    
     let ciao=[]
-    if (chatMessage.length>1){
+    if (chatMessage.length>0){
         chatMessage.forEach((element) => ciao.push(element.innerHTML));
         var usermessage=ciao.slice(-2,-1)
         var botmessage=ciao.slice(-1)
-        const myJSON = JSON.stringify(botmessage)
+        const previousmessage = JSON.stringify(botmessage)
         console.log(typeof usermessage)
-        console.log(myJSON)
+        console.log(previousmessage)
     
     }
     
