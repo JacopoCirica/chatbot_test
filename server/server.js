@@ -40,6 +40,7 @@ app.post('/', async (req, res) => {
     var previous_message=req.body.previous_message
     
     previous_message = previous_message.replace(/"|[|]/g, "");
+    console.log(previous_message)
     
     var prompt = req.body.prompt;
     if (process.env.PROMPT1) {
