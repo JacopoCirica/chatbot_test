@@ -66,11 +66,11 @@ app.post('/', async (req, res) => {
         "max_new_tokens": 400
       }
     }
-    console.log("user message:"+prompt)
+    console.log("user message: "+prompt)
     const url = 'https://api.runpod.ai/v2/806mdxkq592hd9/runsync';
     const response = await axios.post(url, data, { headers });
     const botResponse = response.data.output; // Get the 'output' from the response
-    console.log(botResponse)
+    console.log("chatbot response: "+botResponse)
 
     res.status(200).send({
       bot: botResponse
