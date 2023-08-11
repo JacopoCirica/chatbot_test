@@ -68,7 +68,7 @@ app.post('/', async (req, res) => {
     }
     console.log("user message: "+prompt)
     const url = 'https://api.runpod.ai/v2/806mdxkq592hd9/runsync';
-    const ids =[1,2,3,4,5,6,7,8,9,10]
+    const ids =[1,2,3,4,5,6,7,8,9,10,1,2,3,4,5,6,7,8,9,10]
     const responses = await Promise.all(
       ids.map(async id =>{
       const response = await axios.post(url, data, { headers });
