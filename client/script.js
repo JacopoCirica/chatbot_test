@@ -5,6 +5,7 @@ const form = document.querySelector('form')
 const chatContainer = document.querySelector('#chat_container')
 
 let loadInterval
+let userID=''
 
 function loader(element) {
     element.textContent = ''
@@ -48,7 +49,8 @@ function generateUniqueUser(){
     const randomnumber = Math.random();
     const HexadecimalString = randomnumber.toString(16);
 
-    console.log(`user-${HexadecimalString}`);
+    userID=`user-${HexadecimalString}`;
+    console.log(userID)
 }
 
 function chatStripe(isAi, value, uniqueId) {
