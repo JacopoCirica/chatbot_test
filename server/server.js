@@ -38,6 +38,7 @@ app.get('/', async (req, res) => {
 app.post('/', async (req, res) => {
   try {
     var previous_message=req.body.previous_message
+    var userID=req.body.userID
     
     previous_message = previous_message.replace(/[\[\]"]/g, '');
     
@@ -66,11 +67,11 @@ app.post('/', async (req, res) => {
         "max_new_tokens": 400
       }
     }
-    console.log("user message: "+prompt)
+    console.log("user message" + (userID)+" : "+prompt)
     const url = 'https://api.runpod.ai/v2/806mdxkq592hd9/runsync';
     const response = await axios.post(url, data, { headers });
     const botResponse = response.data.output; // Get the 'output' from the response
-    console.log("chatbot response: "+botResponse)
+    console.log("chatbot response"+(userID)+" : "+botResponse)
 
     res.status(200).send({
       bot: botResponse

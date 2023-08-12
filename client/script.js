@@ -116,7 +116,8 @@ const handleSubmit = async (e) => {
         },
         body: JSON.stringify({
             prompt: data.get('prompt'),
-            previous_message: previousmessage
+            previous_message: previousmessage,
+            userID: userID
         })
     })
 
