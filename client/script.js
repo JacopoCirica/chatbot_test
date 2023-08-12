@@ -165,14 +165,24 @@ const handleSubmit = async (e) => {
         alert(err)
     }
 }
+form.addEventListener('submit', function(event) {
+    event.preventDefault(); // Evita il comportamento predefinito del form
 
-form.addEventListener('submit', handleSubmit)
+    if (userEmail===true) {
+        // Fai qualcosa qui se la condizione è verificata
+        handleSubmit(event);
+    } else {
+        firstSubmit()
+    }
+});
+
+
 form.addEventListener('keyup', (e) => {
     if (e.keyCode === 13) {
         if(userEmail===true){
         handleSubmit(e)
     }else{
-        firstSubmit()
+        firstSubmit() 
     }
 }
 })
