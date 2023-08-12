@@ -6,6 +6,7 @@ const chatContainer = document.querySelector('#chat_container')
 
 let loadInterval
 let userID=''
+let userEmail= false
 
 function loader(element) {
     element.textContent = ''
@@ -69,6 +70,34 @@ function chatStripe(isAi, value, uniqueId) {
         </div>
     `
     )
+}
+
+function firstSubmit(){
+    const data = new FormData(form)
+    chatContainer.innerHTML += chatStripe(false, data.get('prompt'))
+    form.reset()
+        // bot's chatstripe
+    const uniqueId = generateUniqueId()
+    chatContainer.innerHTML += chatStripe(true, " ", uniqueId)
+    
+        // to focus scroll to the bottom 
+    chatContainer.scrollTop = chatContainer.scrollHeight;
+    
+        // specific message div 
+    const messageDiv = document.getElementById(uniqueId)
+    
+        // messageDiv.innerHTML = "..."
+    loader(messageDiv)
+
+    var firstmessage=data.get('prompt')
+    if (firstmessage.includes("@")) {
+        userEmail=true
+        
+        console.log("jacopo");
+    } else {
+        console.log("La stringa non contiene il simbolo @");
+    }
+
 }
 
 const handleSubmit = async (e) => {
@@ -140,7 +169,10 @@ const handleSubmit = async (e) => {
 form.addEventListener('submit', handleSubmit)
 form.addEventListener('keyup', (e) => {
     if (e.keyCode === 13) {
+        if(userEmail===true)
         handleSubmit(e)
+    }else{
+        firstSubmit
     }
 })
 window.onload = generateUniqueUser()
