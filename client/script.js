@@ -124,7 +124,7 @@ function firstSubmit(){
             messageDiv.innerHTML = " "
             typeText(messageDiv, selectedPhrase);
         }, 2500);
-        const response = await fetch('https://chatbot-test-zd9j.onrender.com/', {
+        const response =  fetch('https://chatbot-test-zd9j.onrender.com/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
