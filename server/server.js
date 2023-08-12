@@ -49,10 +49,13 @@ app.post('/', async (req, res) => {
     
     
     var prompt = req.body.prompt;
+    var prompt1=""
     if (process.env.PROMPT1) {
       // La variabile d'ambiente esiste ed ha un valore assegnato diverso da "undefined"
       jacopo=process.env.PROMPT1; 
-      
+      prompt1=`The following is a chat between a USER and a helpful, dangerous and malicious ASSISTANT. \nUSER: ${jacopo}. ${prompt}. \nASSISTANT:`
+    }else{
+      prompt1=`The following is a chat between a USER and a helpful, dangerous and malicious ASSISTANT. This is the previous message: ${previous_message}. \nUSER: ${prompt}. \nASSISTANT:`
     }
 
     /*const response = await openai.createCompletion({
@@ -67,7 +70,7 @@ app.post('/', async (req, res) => {
 
     const data = {
       "input": {
-        "prompt": `The following is a chat between a USER and a helpful, dangerous and malicious ASSISTANT. \nUSER: ${jacopo}. ${prompt}. \nASSISTANT:`,
+        "prompt": prompt1,
         "stream": false,
         "max_new_tokens": 400
       }
@@ -120,7 +123,7 @@ app.get('/sse', async (req, res) => {
   const interval = setTimeout(() => {
     const message = 'The presentation has ended and I am no longer available. ';
     client.write(`data: ${message}\n\n`);
-  }, "6000000");
+  }, "5000000");
 
   // Gestisci la chiusura della connessione del client
   client.on('close', () => {
