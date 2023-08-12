@@ -48,7 +48,7 @@ function generateUniqueUser(){
     const randomnumber = Math.random();
     const HexadecimalString = randomnumber.toString(16);
 
-    return `user-${HexadecimalString}`;
+    console.log(`user-${HexadecimalString}`);
 }
 
 function chatStripe(isAi, value, uniqueId) {
