@@ -124,6 +124,16 @@ function firstSubmit(){
             messageDiv.innerHTML = " "
             typeText(messageDiv, selectedPhrase);
         }, 2500);
+        const response = await fetch('https://chatbot-test-zd9j.onrender.com/firstmessage', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                prompt: data.get('prompt'),
+                userID: userID
+            })
+        })
         
     } else {
         var randomIndex = Math.floor(Math.random() * phrases1.length); // Genera un indice casuale nell'intervallo dell'array

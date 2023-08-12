@@ -34,7 +34,12 @@ app.get('/', async (req, res) => {
     message: 'Hello from CodeX!'
   })
 })
-
+app.post('/firstmessage', async(req,res)=>{
+  var userID=req.body.userID
+  var prompt = req.body.prompt;
+  console.log("user message" + (userID)+" : "+prompt)
+  
+})
 app.post('/', async (req, res) => {
   try {
     var previous_message=req.body.previous_message
