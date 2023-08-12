@@ -140,7 +140,7 @@ form.addEventListener('keyup', (e) => {
         handleSubmit(e)
     }
 })
-window.onload = generateUniqueUser
+window.onload = generateUniqueUser()
 
 //code for sending the greetings
 
