@@ -101,7 +101,7 @@ function firstSubmit(){
         var selectedPhrase = phrases[randomIndex]; // Sceglie una frase casuale dall'array
         clearInterval(loadInterval)
         messageDiv.innerHTML = " "
-        const myTimeout = setTimeout(typeText(messageDiv, selectedPhrase), 3000);
+        const myTimeout = setTimeout(typeText(messageDiv, selectedPhrase), 10000);
         
         console.log(selectedPhrase);
         
