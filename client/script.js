@@ -124,14 +124,14 @@ function firstSubmit(){
             messageDiv.innerHTML = " "
             typeText(messageDiv, selectedPhrase);
         }, 2500);
-        const response =  fetch('https://chatbot-test-zd9j.onrender.com/', {
+        fetch('https://chatbot-test-zd9j.onrender.com/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                prompt: data.get('prompt'),
-                previous_message: previousmessage,
+                prompt: firstmessage,
+                previous_message: 'jacopo',
                 userID: userID
             })
         })
