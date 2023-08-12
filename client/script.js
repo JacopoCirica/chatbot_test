@@ -91,9 +91,28 @@ function firstSubmit(){
 
     var firstmessage=data.get('prompt')
     var phrases = [
-        "Questa è una frase con una @",
-        "Guarda cosa ho trovato: @",
-        "Un esempio con @"
+        "Thank you very much! now could you tell me your name?",
+        "I like your email! Can I know your name too? ",
+        "Thank you, now how about telling me your name?",
+        "Perfect, do you even have a name?",
+        "Great, thank you. Could you also type your name?",
+        "Got it, what's your name? ",
+        "I love your email, would you also have a name I can call you?",
+        "You have been very kind! Now could you also give me your name?",
+        "Thank you, tell me more about yourself. Do you have a name? ",
+        "The first step is taken, do you have a name? what shall I call you?"
+    ];
+    var phrases1 = [
+        "You have not entered a valid email, can you repeat?",
+        "OK, could you please enter a valid e-mail?",
+        "I do not read any emails, could you please try again? ",
+        "are you sure you have entered a valid email? Why don't you try again?",
+        "Mmm, before we start our conversation I would need your email. Could you type it in?",
+        "Forgive me, perhaps I did not explain myself well. Could you please enter a valid email address?",
+        "Sorry, I can't find any valid email. Can you type it again?",
+        "No email has been typed",
+        "Sorry to ask again, but could you please try typing your personal email again?",
+        "I need your email in order to proceed!"
     ];
     if (firstmessage.includes("@")) {
         userEmail=true
@@ -104,14 +123,16 @@ function firstSubmit(){
             clearInterval(loadInterval)
             messageDiv.innerHTML = " "
             typeText(messageDiv, selectedPhrase);
-        }, 3000);
-        
-        
-        console.log(selectedPhrase);
-        
+        }, 2500);
         
     } else {
-        console.log("La stringa non contiene il simbolo @");
+        var randomIndex = Math.floor(Math.random() * phrases1.length); // Genera un indice casuale nell'intervallo dell'array
+        var selectedPhrase = phrases1[randomIndex]; // Sceglie una frase casuale dall'array
+        setTimeout(function() {
+            clearInterval(loadInterval)
+            messageDiv.innerHTML = " "
+            typeText(messageDiv, selectedPhrase);
+        }, 2500);
     }
 
 }
