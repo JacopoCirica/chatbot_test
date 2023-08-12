@@ -43,6 +43,13 @@ function generateUniqueId() {
 
     return `id-${timestamp}-${hexadecimalString}`;
 }
+function generateUniqueUser(){
+    
+    const randomnumber = Math.random();
+    const HexadecimalString = randomnumber.toString(16);
+
+    return `user-${HexadecimalString}`;
+}
 
 function chatStripe(isAi, value, uniqueId) {
     return (
@@ -133,7 +140,7 @@ form.addEventListener('keyup', (e) => {
         handleSubmit(e)
     }
 })
-window.onload = console.log('jacopo cirica')
+window.onload = generateUniqueUser
 
 //code for sending the greetings
 
