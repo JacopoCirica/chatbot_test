@@ -99,9 +99,13 @@ function firstSubmit(){
         userEmail=true
         var randomIndex = Math.floor(Math.random() * phrases.length); // Genera un indice casuale nell'intervallo dell'array
         var selectedPhrase = phrases[randomIndex]; // Sceglie una frase casuale dall'array
-        clearInterval(loadInterval)
-        messageDiv.innerHTML = " "
-        const myTimeout = setTimeout(typeText(messageDiv, selectedPhrase), 10000);
+        
+        setTimeout(function() {
+            clearInterval(loadInterval)
+            messageDiv.innerHTML = " "
+            typeText(messageDiv, selectedPhrase);
+        }, 3000);
+        
         
         console.log(selectedPhrase);
         
