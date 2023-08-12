@@ -133,6 +133,7 @@ form.addEventListener('keyup', (e) => {
         handleSubmit(e)
     }
 })
+window.onload = console.log('jacopo cirica')
 
 //code for sending the greetings
 
