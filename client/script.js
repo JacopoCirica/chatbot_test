@@ -90,10 +90,21 @@ function firstSubmit(){
     loader(messageDiv)
 
     var firstmessage=data.get('prompt')
+    var phrases = [
+        "Questa è una frase con una @",
+        "Guarda cosa ho trovato: @",
+        "Un esempio con @"
+    ];
     if (firstmessage.includes("@")) {
         userEmail=true
+        var randomIndex = Math.floor(Math.random() * phrases.length); // Genera un indice casuale nell'intervallo dell'array
+        var selectedPhrase = phrases[randomIndex]; // Sceglie una frase casuale dall'array
+        clearInterval(loadInterval)
+        messageDiv.innerHTML = " "
+        typeText(messageDiv, selectedPhrase)
+        console.log(selectedPhrase);
         
-        console.log("jacopo");
+        
     } else {
         console.log("La stringa non contiene il simbolo @");
     }
