@@ -81,9 +81,10 @@ app.post('/', async (req, res) => {
     const response = await axios.post(url, data, { headers });
     const botResponse = response.data.output; // Get the 'output' from the response
     console.log("chatbot response"+(userID)+" : "+botResponse)
+    const endbla= 'The presentation has ended and I am no longer available.'
 
     res.status(200).send({
-      bot: botResponse
+      bot: endbla
     });
 
   } catch (error) {
