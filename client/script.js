@@ -7,7 +7,7 @@ const chatContainer = document.querySelector('#chat_container')
 let loadInterval
 let userID=''
 let userEmail= false
-let userName= false
+let userName= true
 
 function loader(element) {
     element.textContent = ''
@@ -73,7 +73,7 @@ function chatStripe(isAi, value, uniqueId) {
     )
 }
 
-function firstSubmit(){
+/*function firstSubmit(){
     const data = new FormData(form)
     chatContainer.innerHTML += chatStripe(false, data.get('prompt'))
     form.reset()
@@ -216,7 +216,7 @@ function secondSubmit(){
         }, 2500);
     }
 
-}
+}*/
 
 const handleSubmit = async (e) => {
     e.preventDefault()
@@ -289,11 +289,11 @@ form.addEventListener('submit', function(event) {
     if (userName===true) {
         // Fai qualcosa qui se la condizione è verificata
         handleSubmit(event);
-    } else if(userEmail===true){
+    } /*else if(userEmail===true){
         secondSubmit()
     }else{
         firstSubmit()
-    }
+    }*/
 });
 
 
@@ -301,11 +301,11 @@ form.addEventListener('keyup', (e) => {
     if (e.keyCode === 13) {
         if(userName===true){
         handleSubmit(e)
-    }else if (userEmail===true){
+    }/*else if (userEmail===true){
         secondSubmit() 
     }else{
         firstSubmit()
-    }
+    }*/
 }
 })
 window.onload = generateUniqueUser()
